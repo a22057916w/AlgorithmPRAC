@@ -32,15 +32,24 @@ int main(int argc, char *argv[]) {
   unsigned_int64 digit = 0;
   double tmp = fnum;
 
+  // calculate total digits
+  // break when last digit is 0. e.g. 3140
+  // total digits would be one more than original one.
   while(ceil(tmp / 10) != int(tmp / 10) ) {
-    cout << tmp << endl;
     tmp *= 10;
     digit++;
   }
+  tmp /= 10;
 
-  unsigned_int64 N = digit;
-  unsigned_int64 D = digit + 1;
-  cout << digit << endl;
+  // make GCD(N, D) to be relative prime
+  unsigned_int64 N = tmp;
+  unsigned_int64 D = pow(10, digit - 1);
+  cout << N << endl;
+  cout << D << endl;
+  unsigned_int64 g = GCD(D, N);
+
+  // make GCD(N, D) to be relative prime, print the answer
+  cout << N / g << "/" << D / g << endl;
 
   return 0;
 }
