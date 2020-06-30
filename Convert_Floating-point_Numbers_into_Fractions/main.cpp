@@ -24,41 +24,29 @@ unsigned_int64 GCD(unsigned_int64 a, unsigned_int64 b) {
   return a;
 }
 
+// PARM was used for command test
 int main(int argc, char *argv[]) {
-  string snum = argv[1];
-  //double fnum = stod(snum);
-  //string dot = string(".");
-  //cout << fnum << endl;
-  if(snum.find('.') != string::npos)
-    snum.erase(find(snum.begin(), snum.end(), '.'));
-  unsigned_int64 digit = snum.length();
-  unsigned_int64 N = stod(snum);
-  unsigned_int64 D = pow(10, digit - 1);
-  unsigned_int64 g = GCD(D, N);
 
-  // make GCD(N, D) to be relative prime, print the answer
-  cout << N / g << "/" << D / g << endl;
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
 
-  //double tmp = fnum;
+  string snum = "";
+  while(cin >> snum && snum != "0") {
 
-  // calculate total digits
-  // break when last digit is 0. e.g. 3140
-  // total digits would be one more than original one.
-  /*while(ceil(tmp / 10) != int(tmp / 10) ) {
-    tmp *= 10;
-    digit++;
+    // Check if the numnber is floating-poing, and remove the dot
+    // If you skip the step, erase function will go error
+    // Not Found must be compared with string::npos, npos is rougly equal to 0
+    if(snum.find('.') != string::npos)
+      snum.erase(find(snum.begin(), snum.end(), '.'));
+
+    unsigned_int64 digit = snum.length();
+    unsigned_int64 N = stoll(snum);          // string to long long
+    unsigned_int64 D = pow(10, digit - 1);
+    unsigned_int64 g = GCD(D, N);           // using self-Implement GCD, but STL contains in-build GCD function
+
+    // make GCD(N, D) to be relative prime, then print the answer
+    cout << N / g << "/" << D / g << endl;
   }
-  tmp /= 10;
-
-  // make GCD(N, D) to be relative prime
-  unsigned_int64 N = tmp;
-  unsigned_int64 D = pow(10, digit - 1);
-  cout << N << endl;
-  cout << D << endl;
-  unsigned_int64 g = GCD(D, N);
-
-  // make GCD(N, D) to be relative prime, print the answer
-  cout << N / g << "/" << D / g << endl;*/
 
   return 0;
 }
