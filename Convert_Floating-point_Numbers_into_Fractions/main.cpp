@@ -25,10 +25,10 @@ unsigned_int64 GCD(unsigned_int64 a, unsigned_int64 b) {
 }
 
 int main(int argc, char *argv[]) {
-  //string snum = argv[1];
-  double fnum = 3.14;
+  string snum = argv[1];
+  double fnum = stod(snum);
   //string dot = string(".");
-
+  cout << fnum << endl;
   unsigned_int64 digit = 0;
   double tmp = fnum;
 
