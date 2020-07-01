@@ -45,8 +45,8 @@ unsigned_int64 travel() {
         return sum;
       sum++;
     }
-    // Traveling even columns
-    for(unsigned_int64 i = tr;  >= 1; j--) {
+    // Traveling even rows
+    for(unsigned_int64 i = tr; i >= 1; i--) {
       // tring to make break point
       if(tr == r && tc == c)
         return sum;
