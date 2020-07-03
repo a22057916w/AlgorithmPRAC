@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     ans += 2 * i;
 
   if(m == c) {
-    if(c % 1)
+    if(c % 2)
       for(LLU i = 0; i < m - r; i++)
         ans++;
     else
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
         ans--;
   }
   else {
-    if(r % 1)
+    if(r % 2)
       for(LLU i = 0; i < m - c; i++)
         ans--;
     else
