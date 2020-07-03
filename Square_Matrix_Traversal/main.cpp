@@ -19,10 +19,10 @@ int main(int argc, char *argv[]) {
     ans += 2 * i;
 
   if(c % 1)
-    for(LLU i = 0; i < r; i++)
+    for(LLU i = 0; i < m - r; i++)
       ans++;
   else
-    for(LLU i = 0; i < r; i++)
+    for(LLU i = 0; i < m - r; i++)
       ans--;
 
   cout << ans << endl;
