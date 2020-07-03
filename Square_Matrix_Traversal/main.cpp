@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
-#include <alogrithm>
+#include <algorithm>
 using namespace std;
 
 typedef unsigned long long LLU;
