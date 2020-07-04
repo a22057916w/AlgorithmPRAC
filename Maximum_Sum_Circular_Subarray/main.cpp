@@ -7,7 +7,6 @@ using namespace std;
 typedef unsigned long long LLU;
 
 const int MAXN = 100005;
-int a[MAXN];
 
 LLU greedy(int len) {
   LLU sum = 0, max_sum = 0;
@@ -32,9 +31,10 @@ LLU greedy(int len) {
 }
 
 int main(int argc, char *argv[]) {
+  int a[MAXN] = {0};
   int length;
-  cin >> length;
 
+  cin >> length;
   for(int i = 0; i < length; i++)
     cin >> a[i];
 
