@@ -2,45 +2,38 @@
 #include <cstdio>
 #include <cstdlib>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 
 typedef long long LL;
 
 const int MAXN = 100005;
+LL a[MAXN];
+LL dp[MAXN];
 
-LL greedy(int len, int *a) {
-  LL sum = 0, max_sum = 0;
-  int start = 0, end = 0, temp_start = 0;
+LL kadane(int len) {
+  memset(dp, 0, len);
+  dp[0] = a[0];
 
-  for(int i = 0; i < len; i++)
-    cout << a[i] << " ";
-  cout << endl;
-  for(int i = 0; i < len; i++) {
-    sum += a[i];
-
-    if(sum < 0) {
-      sum = 0;
-      temp_start = i + 1;
-    }
-
-    if(sum > max_sum) {
-      max_sum = sum;
-      start = temp_start;
-      end = i;
-    }
+  LL ans = 0;
+  for(int i = 1; i < len; i++) {
+    dp[i] = max(dp[i - 1] + a[i], a[i]);
+    ans = max(ans, dp[i]);
   }
 
-  return max_sum;
+  return ans;
 }
 
 int main(int argc, char *argv[]) {
-  int a[MAXN] = {0};
+
   int length;
 
   cin >> length;
   for(int i = 0; i < length; i++)
     cin >> a[i];
 
-  LL ans = greedy(length, a);
+  LL ans = kadane(length);
   cout << ans << endl;
+
+  return 0;
 }
