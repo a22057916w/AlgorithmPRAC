@@ -26,14 +26,29 @@ LL kadane(int len) {
 
 int main(int argc, char *argv[]) {
 
-  int length;
+  int len;
 
-  cin >> length;
-  for(int i = 0; i < length; i++)
+  cin >> len;
+  for(int i = 0; i < len; i++)
     cin >> a[i];
 
-  LL ans = kadane(length);
-  cout << ans << endl;
+  LL normal_max = kadane(len);
+
+  LL total = 0;
+  for(int i = 0; i < len; i++)
+    total += a[i];
+
+  for(int i = 0; i < len; i++)
+    a[i] = -a[i];
+
+  LL normal_min = kadane(len);
+  /*LL total = [=]() {
+    for(int i = 0; i < len; i++)
+
+  }*/
+  LL circular_max = total + normal_min;
+
+  cout << max(circular_max, normal_max) << endl;
 
   return 0;
 }
