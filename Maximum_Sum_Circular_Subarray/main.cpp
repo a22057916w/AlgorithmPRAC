@@ -3,7 +3,7 @@
 // and the circular subarray (end-to-end).
 // To find circular maximun subarray, you just simply do
 // total_sum - normal minimun subarray sum (not circular)
-// Eventualy the ansewr is max(normal subarray, circular subarray)
+// Eventually the ansewr is max(normal subarray, circular subarray)
 
 #include <iostream>
 #include <cstdio>
