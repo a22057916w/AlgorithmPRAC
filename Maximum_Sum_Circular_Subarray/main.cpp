@@ -2,7 +2,7 @@
 // you need to consider the normal subarray (not circular)
 // and the circular subarray (end-to-end).
 // To find circular maximun subarray, you just simply do
-// total_sum - normal minimun subarray sum (not circular)
+// total_sum - normal minimun subarray sum (not circular).
 // Eventually the ansewr is max(normal subarray, circular subarray)
 
 #include <iostream>
