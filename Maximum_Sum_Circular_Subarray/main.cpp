@@ -25,30 +25,32 @@ LL kadane(int len) {
 }
 
 int main(int argc, char *argv[]) {
+  int testcase;
 
-  int len;
+  cin >> testcase;
+  while(testcase--) {
+    int len;
+    cin >> len;
 
-  cin >> len;
-  for(int i = 0; i < len; i++)
-    cin >> a[i];
-
-  LL normal_max = kadane(len);
-
-  LL total = 0;
-  for(int i = 0; i < len; i++)
-    total += a[i];
-
-  for(int i = 0; i < len; i++)
-    a[i] = -a[i];
-
-  LL normal_min = kadane(len);
-  /*LL total = [=]() {
     for(int i = 0; i < len; i++)
+      cin >> a[i];
 
-  }*/
-  LL circular_max = total + normal_min;
+    // find maximun sum subarray by kadane's dp method
+    LL normal_max = kadane(len);
 
-  cout << max(circular_max, normal_max) << endl;
+    // find the total array sum
+    LL total = 0;
+    for(int i = 0; i < len; i++)
+      total += a[i];
 
+    // find the minimun sum subarray 
+    for(int i = 0; i < len; i++)
+      a[i] = -a[i];
+    LL normal_min = kadane(len);
+
+    LL circular_max = total + normal_min;
+
+    cout << max(circular_max, normal_max) << endl;
+  }
   return 0;
 }
