@@ -1,3 +1,10 @@
+// To find the circular maximun subarray,
+// you need to consider the normal subarray (not circular)
+// and the circular subarray (end-to-end).
+// To find circular maximun subarray, you just simply do
+// total_sum - normal minimun subarray sum (not circular)
+// Eventualy the ansewr is max(normal subarray, circular subarray)
+
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
@@ -35,7 +42,7 @@ int main(int argc, char *argv[]) {
     for(int i = 0; i < len; i++)
       cin >> a[i];
 
-    // find maximun sum subarray by kadane's dp method
+    // find maximun sum subarray by kadane's dp method (not circular)
     LL normal_max = kadane(len);
 
     // find the total array sum
@@ -43,11 +50,13 @@ int main(int argc, char *argv[]) {
     for(int i = 0; i < len; i++)
       total += a[i];
 
-    // find the minimun sum subarray 
+    // neg the array to invoke kadane's method
+    // find the minimun sum subarray (not circular)
     for(int i = 0; i < len; i++)
       a[i] = -a[i];
     LL normal_min = kadane(len);
 
+    // Do total + normal_min, since the normal_min is a positive number;
     LL circular_max = total + normal_min;
 
     cout << max(circular_max, normal_max) << endl;
