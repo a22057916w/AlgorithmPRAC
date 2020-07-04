@@ -4,14 +4,17 @@
 #include <algorithm>
 using namespace std;
 
-typedef unsigned long long LLU;
+typedef long long LL;
 
 const int MAXN = 100005;
 
-LLU greedy(int len, int &a) {
-  LLU sum = 0, max_sum = 0;
+LL greedy(int len, int *a) {
+  LL sum = 0, max_sum = 0;
   int start = 0, end = 0, temp_start = 0;
 
+  for(int i = 0; i < len; i++)
+    cout << a[i] << " ";
+  cout << endl;
   for(int i = 0; i < len; i++) {
     sum += a[i];
 
@@ -38,6 +41,6 @@ int main(int argc, char *argv[]) {
   for(int i = 0; i < length; i++)
     cin >> a[i];
 
-  LLU ans = greedy(length, a);
+  LL ans = greedy(length, a);
   cout << ans << endl;
 }
