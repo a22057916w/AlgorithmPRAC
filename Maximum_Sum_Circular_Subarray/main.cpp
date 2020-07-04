@@ -8,7 +8,7 @@ typedef unsigned long long LLU;
 
 const int MAXN = 100005;
 
-LLU greedy(int len) {
+LLU greedy(int len, int &a) {
   LLU sum = 0, max_sum = 0;
   int start = 0, end = 0, temp_start = 0;
 
@@ -38,6 +38,6 @@ int main(int argc, char *argv[]) {
   for(int i = 0; i < length; i++)
     cin >> a[i];
 
-  LLU ans = greedy(length);
+  LLU ans = greedy(length, a);
   cout << ans << endl;
 }
