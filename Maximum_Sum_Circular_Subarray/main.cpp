@@ -38,5 +38,6 @@ int main(int argc, char *argv[]) {
   for(int i = 0; i < length; i++)
     cin >> a[i];
 
-  LLU = greedy(length);
+  LLU ans = greedy(length);
+  cout << ans << endl;
 }
