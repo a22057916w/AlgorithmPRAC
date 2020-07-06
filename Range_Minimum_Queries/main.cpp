@@ -17,7 +17,7 @@ void sparse_table(int n) {
     st[0][i] = a[i];
 }
 
-int main(int argc. char *argv[]) {
+int main(int argc, char *argv[]) {
   /*int n;
   cin >> n;
 
