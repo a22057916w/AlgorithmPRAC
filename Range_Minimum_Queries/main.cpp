@@ -13,7 +13,7 @@ int st[logN][MAXN];
 
 void sparse_table(int n) {
 
-  int logn = floor(log2(n));
+  int logn = ceil(log2(n));
 
   for(int i = 0; i < n; i++)
     st[0][i] = a[i];
@@ -36,8 +36,11 @@ int main(int argc, char *argv[]) {
     cin >> a[i];
 
   sparse_table(n);
+
   int L, R;
-  cin >> L >> R;
-  cout << query(L, R) << endl;
+  while(n--) {
+    cin >> L >> R;
+    cout << query(L, R) << endl;
+  }
   return 0;
 }
