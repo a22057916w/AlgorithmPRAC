@@ -20,12 +20,12 @@ void sparse_table(int n) {
 
   for(int i = 1; i < logn; i++)
     for(int j = 0; j <= n - (1 << i); j++)
-      st[i][j] = min(st[i - 1][j], st[i -1][j + (1 << (i - 1))]);
+      st[i][j] = min(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
 }
 
 int query(int L, int R) {
   int i = floor(log2(R - L + 1));
-  return(st[i][L - 1], st[i][(R - 1) - (1 << i) + 1]);
+  return min(st[i][L - 1], st[i][(R - 1) - (1 << i) + 1]);
 }
 
 int main(int argc, char *argv[]) {
